@@ -20,4 +20,4 @@ empty_file.o: /home/jayesh/zephyrproject/zephyr/misc/empty_file.c \
  /home/jayesh/zephyrproject/zephyr/include/zephyr/dt-bindings/gpio/microchip-xec-gpio.h \
  /home/jayesh/zephyrproject/zephyr/dts/arm/microchip/mec152x/mec152xhsz-pinctrl.dtsi \
  /home/jayesh/zephyrproject/zephyr/include/zephyr/dt-bindings/pinctrl/mchp-xec-pinctrl.h \
- /home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/boards/mec15xxevb_assy6853_mec1501_hsz.overlay
+ /home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/mec15xxevb_assy6853_mec1501_hsz.overlay

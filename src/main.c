@@ -28,7 +28,7 @@ void main(void) {
         printk("Error: PWM device is not ready\n");
         return;
     }
-
+    
     uint32_t period = MAX_PERIOD;
     uint8_t dir = 0; /* Direction of change: 0 = decrease, 1 = increase */
 
@@ -53,3 +53,4 @@ void main(void) {
         k_sleep(K_MSEC(500)); /* Adjust delay as needed */
     }
 }
+

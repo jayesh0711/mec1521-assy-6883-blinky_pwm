@@ -2319,31 +2319,31 @@
  pinctrl-names = "default";
 };
 # 0 "<command-line>" 2
-# 1 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/boards/mec15xxevb_assy6853_mec1501_hsz.overlay" 1
-# 29 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/boards/mec15xxevb_assy6853_mec1501_hsz.overlay"
-&gpio_040_076 {
-    status = "okay";
-};
-
-&pwm0 {
-    compatible = "pwm";
-    status = "okay";
-    clock-frequency = <1000000>;
-};
-
-
-
-&pwm0 {
-    status = "okay";
-    channel-gpios = <&gpio_040_076 0xb (0 << 0)>;
-};
-
-pwmleds {
-    compatible = "pwm-leds";
-    pwm_led0: pwm_led_0 {
-        pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
-        label = "PWM_LED0";
+# 1 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/mec15xxevb_assy6853_mec1501_hsz.overlay" 1
+# 36 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/mec15xxevb_assy6853_mec1501_hsz.overlay"
+/ {
+    aliases {
+        sw0 = &button0;
     };
+
+    buttons {
+        compatible = "gpio-keys";
+        button0: button_0 {
+            gpios = <&gpio_140_176 0x12 ((1 << 0) | (1 << 4))>;
+            label = "User Button";
+        };
+    };
+
+
+    pwmleds {
+        compatible = "pwm-leds";
+
+        pwm_led0: pwm_led_0 {
+            pwms = <&pwm0 0 20000000 0>;
+            label = "PWM_LED0";
+        };
+    };
+
 };
 # 0 "<command-line>" 2
 # 1 "/home/jayesh/zephyrproject/zephyr/misc/empty_file.c"

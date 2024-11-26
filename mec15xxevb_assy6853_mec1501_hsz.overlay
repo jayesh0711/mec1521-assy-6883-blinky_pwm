@@ -11,15 +11,50 @@
 // For more help, browse the DeviceTree documentation at https://docs.zephyrproject.org/latest/guides/dts/index.html
 // You can also visit the nRF DeviceTree extension documentation at https://docs.nordicsemi.com/bundle/nrf-connect-vscode/page/guides/ncs_configure_app.html#devicetree-support-in-the-extension
 
-&pwm0 {
-    status = "okay";
+
+
+// &pwm0 {
+//     status = "okay";
+// };
+
+// &pwmleds {
+//     compatible = "pwm-leds";
+
+//     pwm_led0: pwm_led_0 {
+//         pwms = <&pwm0 0 20000000 PWM_POLARITY_NORMAL>;  /* Channel 0, Period 20ms, Normal Polarity */
+//         label = "PWM_LED0";
+//     };
+// };
+
+// &pwm_led0{
+//     pwms = <&pwm0 0 20000000 PWM_POLARITY_NORMAL>;  /* Channel 0, Period 20ms, Normal Polarity */
+// };
+
+
+
+
+/ {
+    aliases {
+        sw0 = &button0;  /* Alias for the button */
+    };
+       
+    buttons {
+        compatible = "gpio-keys";
+        button0: button_0 {
+            gpios = <&gpio_140_176 0x12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            label = "User Button";
+        };
+    };
+
+
+    pwmleds {
+        compatible = "pwm-leds";
+    
+        pwm_led0: pwm_led_0 {
+            pwms = <&pwm0 0 20000000 0>; /* Channel 0, Period 20ms, Normal Polarity */
+            label = "PWM_LED0";
+        };
+    };
+
 };
 
-pwmleds {
-    compatible = "pwm-leds";
-    
-    pwm_led0: pwm_led_0 {
-        pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>; /* Channel 0, Period 20ms */
-        label = "PWM_LED0";
-    };
-};
