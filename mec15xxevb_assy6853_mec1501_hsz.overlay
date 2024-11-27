@@ -33,28 +33,43 @@
 
 
 
+// / {
+//     aliases {
+//         sw0 = &button0;  /* Alias for the button */
+//     };
+       
+//     buttons {
+//         compatible = "gpio-keys";
+//         button0: button_0 {
+//             gpios = <&gpio_140_176 0x12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+//             label = "User Button";
+//         };
+//     };
+
+
+//     pwmleds {
+//         compatible = "pwm-leds";
+    
+//         pwm_led0: pwm_led_0 {
+//             pwms = <&pwm0 0 20000000 0>; /* Channel 0, Period 20ms, Normal Polarity */
+//             label = "PWM_LED0";
+//         };
+//     };
+
+// };
+
+
 / {
     aliases {
-        sw0 = &button0;  /* Alias for the button */
+        pwm-led0 = &pwm_led0;  /* Fix the alias name */
     };
-       
-    buttons {
-        compatible = "gpio-keys";
-        button0: button_0 {
-            gpios = <&gpio_140_176 0x12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-            label = "User Button";
-        };
-    };
-
 
     pwmleds {
         compatible = "pwm-leds";
-    
+
         pwm_led0: pwm_led_0 {
-            pwms = <&pwm0 0 20000000 0>; /* Channel 0, Period 20ms, Normal Polarity */
+            pwms = <&pwm0 0 500000000 0>; /* Channel 0,5000ms period, default polarity */
             label = "PWM_LED0";
         };
     };
-
 };
-

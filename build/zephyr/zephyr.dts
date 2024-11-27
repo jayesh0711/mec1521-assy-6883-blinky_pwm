@@ -28,7 +28,7 @@
 		i2c7 = &i2c_smb_2;
 		kscan0 = &kscan_input;
 		watchdog0 = &wdog;
-		sw0 = &button0;
+		pwm-led0 = &pwm_led0;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -1124,17 +1124,10 @@
 			label = "LED 4";
 		};
 	};
-	buttons {
-		compatible = "gpio-keys";
-		button0: button_0 {
-			gpios = < &gpio_140_176 0x12 0x11 >;
-			label = "User Button";
-		};
-	};
 	pwmleds {
 		compatible = "pwm-leds";
 		pwm_led0: pwm_led_0 {
-			pwms = < &pwm0 0x0 0x1312d00 0x0 >;
+			pwms = < &pwm0 0x0 0x1dcd6500 0x0 >;
 			label = "PWM_LED0";
 		};
 	};

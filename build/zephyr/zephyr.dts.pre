@@ -2320,30 +2320,20 @@
 };
 # 0 "<command-line>" 2
 # 1 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/mec15xxevb_assy6853_mec1501_hsz.overlay" 1
-# 36 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/mec15xxevb_assy6853_mec1501_hsz.overlay"
+# 62 "/home/jayesh/zephyrproject/zephyr/samples/basic/blinky_pwm/mec15xxevb_assy6853_mec1501_hsz.overlay"
 / {
     aliases {
-        sw0 = &button0;
+        pwm-led0 = &pwm_led0;
     };
-
-    buttons {
-        compatible = "gpio-keys";
-        button0: button_0 {
-            gpios = <&gpio_140_176 0x12 ((1 << 0) | (1 << 4))>;
-            label = "User Button";
-        };
-    };
-
 
     pwmleds {
         compatible = "pwm-leds";
 
         pwm_led0: pwm_led_0 {
-            pwms = <&pwm0 0 20000000 0>;
+            pwms = <&pwm0 0 500000000 0>;
             label = "PWM_LED0";
         };
     };
-
 };
 # 0 "<command-line>" 2
 # 1 "/home/jayesh/zephyrproject/zephyr/misc/empty_file.c"
